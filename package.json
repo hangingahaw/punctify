@@ -1,0 +1,63 @@
+{
+  "name": "punctify",
+  "version": "0.1.1",
+  "description": "Context-aware punctuation correction powered by LLMs",
+  "author": "Haihang Wang",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "typecheck:test": "tsc --noEmit -p tsconfig.test.json",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "typography",
+    "punctuation",
+    "comma",
+    "legal",
+    "llm"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hangingahaw/punctify.git"
+  },
+  "homepage": "https://github.com/hangingahaw/punctify#readme",
+  "bugs": {
+    "url": "https://github.com/hangingahaw/punctify/issues"
+  },
+  "dependencies": {
+    "@lexstyle/llm-client": "^0.1.0",
+    "diff-match-patch": "^1.0.5"
+  },
+  "devDependencies": {
+    "@types/diff-match-patch": "^1.0.36",
+    "tsup": "^8.0.0",
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}
